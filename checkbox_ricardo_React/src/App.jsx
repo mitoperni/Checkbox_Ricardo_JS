@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Card from "./components/Card";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -14,7 +15,7 @@ function App() {
       ...prev,
       [name]: value,
     }));
-    console.log(formData)
+    console.log(formData);
   }
 
   return (
@@ -36,12 +37,32 @@ function App() {
         />
         <div>
           <label htmlFor="terms">Acepto las condiciones</label>
-          <input type="checkbox" name="terms" id="terms" onChange={handleChange}/>
+          <input
+            type="checkbox"
+            name="terms"
+            id="terms"
+            onChange={handleChange}
+          />
         </div>
       </form>
       <button type="button" id="send">
         Mandar formulario
       </button>
+      <div className="container">
+        <div className="my-5 d-flex">
+          <Card
+            buttonText="Botón 1"
+            description="Esta es la descripción 1"
+            title="Titulo 1"
+          />
+          <Card
+            title="Titulo 2"
+            description="Esta es la descripción 2"
+            buttonText="Botón 2"
+          />
+          <Card />
+        </div>
+      </div>
     </>
   );
 }
